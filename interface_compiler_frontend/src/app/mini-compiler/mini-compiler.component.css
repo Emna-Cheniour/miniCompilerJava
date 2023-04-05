@@ -1,0 +1,35 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootswatch/dist/quartz/bootstrap.min.css";
+
+
+.container {
+
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.card-header{
+  font-size: larger;
+}
+
+.card-body{
+  background-color: #000000da; /* Set your desired background color */ 
+  -webkit-backdrop-filter: blur(55px); /* For Safari */
+  backdrop-filter: blur(55px);
+}
+h1 {
+  text-align: center;
+  font-size: larger;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+.alert {
+  margin-top: 20px;
+} 
+.btn{
+  margin: 2rem 45%;
+  padding: 10px 20px;
+}
