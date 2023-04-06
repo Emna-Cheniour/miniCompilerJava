@@ -15,17 +15,16 @@ export class MiniCompilerComponent implements OnInit {
   compiler() {
     this.http.post('http://localhost:3000/compiler', { code: this.code })
       .subscribe((response: any) => {
-        if (response.success) {
-          this.erreur = '';
-          console.log('Résultat de la compilation :', response.result);
-        } else {
-          this.erreur = response.error;
-          console.log('Erreur de compilation :', response.error);
-        }
+        console.log('Résultat de la compilation :', response);
+        this.erreur = '';
       }, (error: any) => {
         console.error('Erreur de communication avec le serveur :', error);
+        this.erreur = 'Erreur de communication avec le serveur';
+      }, () => {
+        console.log('Requête terminée');
       });
   }
+
 
   ngOnInit(): void {
 
