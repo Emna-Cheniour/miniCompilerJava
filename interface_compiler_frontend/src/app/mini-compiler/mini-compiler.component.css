@@ -95,5 +95,12 @@ textarea {
 textarea:focus {
   outline: none;
   color: black;
-  /* ou la couleur de texte que vous souhaitez utiliser */
+}
+
+.alert {
+  background-color: pink;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
 }

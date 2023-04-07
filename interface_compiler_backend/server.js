@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const { spawn } = require('child_process');
+const { log } = require('console');
 
 app.use(cors());
 
@@ -18,22 +19,23 @@ app.post('/compiler', (req, res) => {
 
   const child = spawn('C:\\Users\\lenovo\\Documents\\GL4\\GL4-2\\Compilation\\tp3\\miniCompilerSyn.exe', { stdio: ['pipe', 'pipe', 'inherit'] });
 
+
   child.stdin.write(code);
   child.stdin.end();
-
+  
   child.stdout.on('data', (data) => {
+    console.log(data.toString()); 
     output += data.toString();
   });
 
   child.on('exit', (code, signal) => {
     if (code !== 0) {
-      res.status(500).send(output);
+      res.status(500).json({ output });
     } else {
-      res.send(output);
+      res.json({ output });
     }
   });
 });
-
 
 app.listen(3000, () => {
   console.log('Serveur démarré sur le port 3000');

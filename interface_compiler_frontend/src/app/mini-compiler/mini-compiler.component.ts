@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MiniCompilerComponent implements OnInit {
   code: string = '';
-  erreur: string = '';
+  affichage: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -16,10 +16,10 @@ export class MiniCompilerComponent implements OnInit {
     this.http.post('http://localhost:3000/compiler', { code: this.code })
       .subscribe((response: any) => {
         console.log('Résultat de la compilation :', response);
-        this.erreur = '';
+        this.affichage = 'Résultat de la compilation :' + response;
       }, (error: any) => {
         console.error('Erreur de communication avec le serveur :', error);
-        this.erreur = 'Erreur de communication avec le serveur';
+        this.affichage = 'Erreur de communication avec le serveur';
       }, () => {
         console.log('Requête terminée');
       });
